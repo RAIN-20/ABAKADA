@@ -31,14 +31,29 @@ class HomeScreen : AppCompatActivity() {
 //        }
 //
 //        modulesImage.setOnClickListener {
-//            val intent = Intent(this@HomeScreenActivity, ModulesActivity::class.java)
+//            val intent = Intent(this@HomeScreen, ModulesActivity::class.java)
 //            startActivity(intent)
 //        }
 //
 //        quizzesImage.setOnClickListener {
-//            val intent = Intent(this@HomeScreenActivity, QuizzesActivity::class.java)
+//            val intent = Intent(this@HomeScreen, QuizzesActivity::class.java)
 //            startActivity(intent)
 //        }
+
+        storyBooksImage.setOnClickListener {
+            val intent = Intent(this@HomeScreen, StoryBooks::class.java)
+            startActivity(intent)
+        }
+
+        quizzesImage.setOnClickListener {
+            val intent = Intent(this@HomeScreen, QuizzesActivity::class.java)
+            startActivity(intent)
+        }
+
+        modulesImage.setOnClickListener {
+            val intent = Intent(this@HomeScreen, modules_screen::class.java)
+            startActivity(intent)
+        }
 
         aboutUsImage.setOnClickListener {
             val intent = Intent(this@HomeScreen, AboutUs::class.java)

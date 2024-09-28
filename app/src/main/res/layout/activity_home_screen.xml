@@ -72,6 +72,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+
                     android:id="@+id/image_modules"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

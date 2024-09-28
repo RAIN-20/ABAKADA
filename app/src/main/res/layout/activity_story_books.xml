@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StoryBooks"
+    android:background="#FFFDC4">
+
+    <!-- Title TextView -->
+    <TextView
+        android:id="@+id/storyBookTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="STORY BOOKS"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="80dp"
+        android:textColor="@color/black"/>
+
+    <!-- ScrollView wrapping LinearLayout to make it scrollable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/storyBookTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="15dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="10dp">
+
+            <!-- Buttons inside the ScrollView -->
+            <Button
+                android:layout_width="302dp"
+                android:layout_height="69dp"
+                android:text="Two Cats and the Monkeys"
+                android:textSize="20dp"
+                android:backgroundTint="#BEEFF6"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:layout_width="302dp"
+                android:layout_height="69dp"
+                android:text="The Lion and The Mouse"
+                android:textSize="20dp"
+                android:backgroundTint="#BEEFF6"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:layout_width="302dp"
+                android:layout_height="69dp"
+                android:text="The Ugly Duckling"
+                android:textSize="20dp"
+                android:backgroundTint="#BEEFF6"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:layout_width="302dp"
+                android:layout_height="69dp"
+                android:text="The Ugly Tree"
+                android:textSize="20dp"
+                android:backgroundTint="#BEEFF6"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:layout_width="302dp"
+                android:layout_height="69dp"
+                android:text="Jack and The Beanstalk"
+                android:textSize="20dp"
+                android:backgroundTint="#BEEFF6"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:layout_width="302dp"
+                android:layout_height="69dp"
+                android:text="Snow White and the seven dwarfs"
+                android:textSize="20dp"
+                android:backgroundTint="#BEEFF6"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:layout_width="302dp"
+                android:layout_height="69dp"
+                android:text="The Clever Fox"
+                android:textSize="20dp"
+                android:backgroundTint="#BEEFF6"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

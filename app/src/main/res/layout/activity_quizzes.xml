@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BEEFF6"
+    tools:context=".QuizzesActivity"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/quizzesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="QUIZZES"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/quizzes_book"
+            app:layout_constraintStart_toEndOf="@+id/quizzesTextView"
+
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizzesTextView">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/cube"
+            android:layout_marginRight="20dp"/>
+
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/dog"
+            android:layout_marginRight="20dp"/>
+
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/abc"
+            android:layout_marginRight="20dp"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/star" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearHorizontal"
+        android:layout_marginTop="40dp">
+
+       <Button
+           android:layout_width="268dp"
+           android:layout_height="70dp"
+           android:text="EASY"
+           android:backgroundTint="#298787"
+           android:textSize="30dp"
+           android:textStyle="bold"
+           android:layout_marginTop="40dp"
+           android:textColor="@color/white"/>
+
+        <Button
+            android:layout_width="268dp"
+            android:layout_height="70dp"
+            android:text="MEDIUM"
+            android:backgroundTint="#298787"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:layout_width="268dp"
+            android:layout_height="70dp"
+            android:text="HARD"
+            android:backgroundTint="#298787"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"/>
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
