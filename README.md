@@ -9,3 +9,7 @@ MOBILE DEV
 ## 09/28/2024
 
  - add story books, quizzes, modules screen
+
+## 09/30/2024
+
+ - add fully working module screen
