@@ -13,6 +13,21 @@
         android:theme="@style/Theme.ABAKADA"
         tools:targetApi="31">
         <activity
+            android:name=".shapes"
+            android:exported="false" />
+        <activity
+            android:name=".animals2"
+            android:exported="false" />
+        <activity
+            android:name=".animals"
+            android:exported="false" />
+        <activity
+            android:name=".letters"
+            android:exported="false" />
+        <activity
+            android:name=".numbers"
+            android:exported="false" />
+        <activity
             android:name=".StoryBooks"
             android:exported="false" />
         <activity

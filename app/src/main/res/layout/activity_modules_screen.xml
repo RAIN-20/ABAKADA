@@ -57,17 +57,20 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/numberIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/cube" />
 
-            <TextView
+            <Button
+                android:id="@+id/numbersButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:text="NUMBERS"
                 android:textSize="25dp"
+                android:backgroundTint="#FDDFDF"
                 android:textColor="@color/black"/>
 
 
@@ -80,18 +83,21 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/animalsIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/dog" />
 
-            <TextView
+            <Button
+                android:id="@+id/animalsButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:text="ANIMALS"
                 android:textSize="25dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:backgroundTint="#FDDFDF"/>
 
 
         </LinearLayout>
@@ -103,18 +109,21 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/letterIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/abc" />
 
-            <TextView
+            <Button
+                android:id="@+id/lettersButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:text="LETTERS"
                 android:textSize="25dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:backgroundTint="#FDDFDF"/>
 
 
         </LinearLayout>
@@ -126,18 +135,21 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/shapesIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/star" />
 
-            <TextView
+            <Button
+                android:id="@+id/shapesButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:text="SHAPES"
                 android:textSize="25dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:backgroundTint="#FDDFDF"/>
 
 
         </LinearLayout>
