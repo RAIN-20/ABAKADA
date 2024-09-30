@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ABAKADA"
         tools:targetApi="31">
         <activity
+            android:name=".lionAndTheMouse"
+            android:exported="false" />
+        <activity
+            android:name=".twoCatsStory"
+            android:exported="false" />
+        <activity
             android:name=".shapes"
             android:exported="false" />
         <activity

@@ -76,7 +76,8 @@
                             android:layout_marginBottom="10dp"
                             app:layout_constraintBottom_toBottomOf="@+id/circle"
                             app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle" />
+                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            android:textColor="@color/black"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <!-- Triangle -->
@@ -97,7 +98,8 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@+id/imageView"
                             app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginBottom="10dp"/>
+                            android:layout_marginBottom="10dp"
+                            android:textColor="@color/black"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
 
@@ -133,7 +135,8 @@
                             android:layout_marginBottom="10dp"
                             app:layout_constraintBottom_toBottomOf="@+id/circle"
                             app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle" />
+                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -160,7 +163,8 @@
                             android:layout_marginBottom="10dp"
                             app:layout_constraintBottom_toBottomOf="@+id/circle"
                             app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle" />
+                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -197,7 +201,8 @@
                             android:layout_marginBottom="10dp"
                             app:layout_constraintBottom_toBottomOf="@+id/circle"
                             app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle" />
+                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -224,7 +229,8 @@
                             android:layout_marginBottom="10dp"
                             app:layout_constraintBottom_toBottomOf="@+id/circle"
                             app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle" />
+                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -261,7 +267,8 @@
                             android:layout_marginBottom="10dp"
                             app:layout_constraintBottom_toBottomOf="@+id/circle"
                             app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle" />
+                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            android:textColor="@color/black" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -284,11 +291,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="CIRCLE"
+                            android:text="HEART"
                             android:layout_marginBottom="10dp"
                             app:layout_constraintBottom_toBottomOf="@+id/circle"
                             app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle" />
+                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -326,7 +334,8 @@
                             android:layout_marginBottom="10dp"
                             app:layout_constraintBottom_toBottomOf="@+id/circle"
                             app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle" />
+                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -352,7 +361,8 @@
                             android:layout_marginBottom="10dp"
                             app:layout_constraintBottom_toBottomOf="@+id/circle"
                             app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle" />
+                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
