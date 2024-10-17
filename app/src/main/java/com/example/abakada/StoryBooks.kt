@@ -14,6 +14,8 @@ class StoryBooks : AppCompatActivity() {
 
         val twoCats: Button = findViewById(R.id.twoCatsBtn)
         val theLion: Button = findViewById(R.id. theLionBtn)
+        val theUgly: Button = findViewById(R.id. theUglyBtn)
+        val uglyytree: Button = findViewById(R.id. uglyTreeBtn)
 
 
         twoCats.setOnClickListener {
@@ -26,6 +28,15 @@ class StoryBooks : AppCompatActivity() {
             startActivity(intent)
         }
 
+        theUgly.setOnClickListener {
+            val intent = Intent(this@StoryBooks, uglyDuck::class.java)
+            startActivity(intent)
+        }
+
+        uglyytree.setOnClickListener {
+            val intent = Intent (this@StoryBooks, uglytree::class.java)
+            startActivity(intent)
+        }
 
     }
 

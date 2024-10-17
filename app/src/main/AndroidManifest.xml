@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ABAKADA"
         tools:targetApi="31">
+        <activity
+            android:name=".uglytree"
+            android:exported="false" />
+        <activity
+            android:name=".uglyDuck"
+            android:exported="false" />
         <activity
             android:name=".lionAndTheMouse"
             android:exported="false" />
@@ -57,7 +66,26 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
+            <!--            <receiver-->
+            <!--                android:name=".NotificationReceiver"-->
+            <!--                android:enabled="true"-->
+            <!--                android:exported="false" />-->
+
+            <!--            <receiver-->
+            <!--                android:name=".BootReceiver"-->
+            <!--                android:enabled="true"-->
+            <!--                android:exported="false">-->
+            <!--                <intent-filter>-->
+            <!--                    <action android:name="android.intent.action.BOOT_COMPLETED" />-->
+            <!--                </intent-filter>-->
+            <!--            </receiver>-->
         </activity>
+
+
     </application>
+
+
 
 </manifest>

@@ -2,53 +2,55 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/start2">
-<!--    android:background="#C0FAFA">-->
+    <!--    android:background="#C0FAFA">-->
 
 
-<!--    <ImageView-->
-<!--        android:layout_width="242dp"-->
-<!--        android:layout_height="67dp"-->
-<!--        android:layout_marginTop="264dp"-->
-<!--        android:layout_marginRight="20dp"-->
-<!--        android:background="@drawable/welcome"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <ImageView-->
+    <!--        android:layout_width="242dp"-->
+    <!--        android:layout_height="67dp"-->
+    <!--        android:layout_marginTop="264dp"-->
+    <!--        android:layout_marginRight="20dp"-->
+    <!--        android:background="@drawable/welcome"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--    <ImageView-->
-<!--        android:layout_width="449dp"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:layout_height="230dp"-->
-<!--        android:background="@drawable/sun"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <ImageView-->
+    <!--        android:layout_width="449dp"-->
+    <!--        android:layout_marginTop="50dp"-->
+    <!--        android:layout_height="230dp"-->
+    <!--        android:background="@drawable/sun"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--    <ImageView-->
-<!--        android:layout_width="250dp"-->
-<!--        android:layout_height="610dp"-->
-<!--        android:background="@drawable/tree"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
+    <!--    <ImageView-->
+    <!--        android:layout_width="250dp"-->
+    <!--        android:layout_height="610dp"-->
+    <!--        android:background="@drawable/tree"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent" />-->
 
-<!--    <ImageView-->
-<!--        android:layout_width="195dp"-->
-<!--        android:layout_height="45dp"-->
-<!--        android:layout_marginRight="5dp"-->
-<!--        android:layout_marginBottom="145dp"-->
-<!--        android:background="#C9F48B"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+    <!--    <ImageView-->
+    <!--        android:layout_width="195dp"-->
+    <!--        android:layout_height="45dp"-->
+    <!--        android:layout_marginRight="5dp"-->
+    <!--        android:layout_marginBottom="145dp"-->
+    <!--        android:background="#C9F48B"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
-<!--    <ImageView-->
-<!--        android:layout_width="165dp"-->
-<!--        android:layout_height="35dp"-->
-<!--        android:layout_marginRight="15dp"-->
-<!--        android:layout_marginBottom="150dp"-->
-<!--        android:background="@drawable/lets_start"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+    <!--    <ImageView-->
+    <!--        android:layout_width="165dp"-->
+    <!--        android:layout_height="35dp"-->
+    <!--        android:layout_marginRight="15dp"-->
+    <!--        android:layout_marginBottom="150dp"-->
+    <!--        android:background="@drawable/lets_start"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
 

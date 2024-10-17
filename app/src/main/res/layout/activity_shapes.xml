@@ -64,11 +64,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp">
+
                         <ImageView
                             android:id="@+id/circle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/circle1" />
+                            android:src="@drawable/circle1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -86,17 +90,20 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:id="@+id/imageView"
+                            android:id="@+id/imageView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/triangle1" />
+                            android:src="@drawable/triangle1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="TRIANGLE"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@+id/imageView"
+                            app:layout_constraintEnd_toEndOf="@+id/imageView2"
                             app:layout_constraintStart_toStartOf="parent"
                             android:layout_marginBottom="10dp"
                             android:textColor="@color/black"/>
@@ -119,7 +126,7 @@
 
 
                         <ImageView
-                            android:id="@+id/circle"
+                            android:id="@+id/pentagon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/pentagon1"
@@ -133,9 +140,9 @@
                             android:layout_height="wrap_content"
                             android:text="PENTAGON"
                             android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/circle"
-                            app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            app:layout_constraintBottom_toBottomOf="@+id/pentagon"
+                            app:layout_constraintEnd_toEndOf="@+id/pentagon"
+                            app:layout_constraintStart_toStartOf="@+id/pentagon"
                             android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -147,7 +154,7 @@
 
 
                         <ImageView
-                            android:id="@+id/circle"
+                            android:id="@+id/star"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/star_shape1"
@@ -161,9 +168,9 @@
                             android:layout_height="wrap_content"
                             android:text="STAR"
                             android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/circle"
-                            app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            app:layout_constraintBottom_toBottomOf="@+id/star"
+                            app:layout_constraintEnd_toEndOf="@+id/star"
+                            app:layout_constraintStart_toStartOf="@+id/star"
                             android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -185,7 +192,7 @@
 
 
                         <ImageView
-                            android:id="@+id/circle"
+                            android:id="@+id/rectangle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/rectangle1"
@@ -199,9 +206,9 @@
                             android:layout_height="wrap_content"
                             android:text="RECTANGLE"
                             android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/circle"
-                            app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            app:layout_constraintBottom_toBottomOf="@+id/rectangle"
+                            app:layout_constraintEnd_toEndOf="@+id/rectangle"
+                            app:layout_constraintStart_toStartOf="@+id/rectangle"
                             android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -213,7 +220,7 @@
 
 
                         <ImageView
-                            android:id="@+id/circle"
+                            android:id="@+id/oval"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/oval1"
@@ -227,9 +234,9 @@
                             android:layout_height="wrap_content"
                             android:text="OVAL"
                             android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/circle"
-                            app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            app:layout_constraintBottom_toBottomOf="@+id/oval"
+                            app:layout_constraintEnd_toEndOf="@+id/oval"
+                            app:layout_constraintStart_toStartOf="@+id/oval"
                             android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -251,7 +258,7 @@
 
 
                         <ImageView
-                            android:id="@+id/circle"
+                            android:id="@+id/square"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/square1"
@@ -265,9 +272,9 @@
                             android:layout_height="wrap_content"
                             android:text="HEART"
                             android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/circle"
-                            app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            app:layout_constraintBottom_toBottomOf="@+id/square"
+                            app:layout_constraintEnd_toEndOf="@+id/square"
+                            app:layout_constraintStart_toStartOf="@+id/square"
                             android:textColor="@color/black" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -279,7 +286,7 @@
 
 
                         <ImageView
-                            android:id="@+id/circle"
+                            android:id="@+id/heart"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/heart1"
@@ -293,9 +300,9 @@
                             android:layout_height="wrap_content"
                             android:text="HEART"
                             android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/circle"
-                            app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            app:layout_constraintBottom_toBottomOf="@+id/heart"
+                            app:layout_constraintEnd_toEndOf="@+id/heart"
+                            app:layout_constraintStart_toStartOf="@+id/heart"
                             android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -318,7 +325,7 @@
 
 
                         <ImageView
-                            android:id="@+id/circle"
+                            android:id="@+id/diamond"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/diamong1"
@@ -332,9 +339,9 @@
                             android:layout_height="wrap_content"
                             android:text="DIAMOND"
                             android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/circle"
-                            app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            app:layout_constraintBottom_toBottomOf="@+id/diamond"
+                            app:layout_constraintEnd_toEndOf="@+id/diamond"
+                            app:layout_constraintStart_toStartOf="@+id/diamond"
                             android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -345,7 +352,7 @@
 
 
                         <ImageView
-                            android:id="@+id/circle"
+                            android:id="@+id/hexagon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/hexagon1"
@@ -359,9 +366,9 @@
                             android:layout_height="wrap_content"
                             android:text="HEXAGON"
                             android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/circle"
-                            app:layout_constraintEnd_toEndOf="@+id/circle"
-                            app:layout_constraintStart_toStartOf="@+id/circle"
+                            app:layout_constraintBottom_toBottomOf="@+id/hexagon"
+                            app:layout_constraintEnd_toEndOf="@+id/hexagon"
+                            app:layout_constraintStart_toStartOf="@+id/hexagon"
                             android:textColor="@color/black"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>

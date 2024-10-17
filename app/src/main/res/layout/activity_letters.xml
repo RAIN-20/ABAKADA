@@ -67,7 +67,6 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -89,7 +88,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -120,7 +118,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
+
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -142,7 +140,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
+
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -172,7 +170,6 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -193,7 +190,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -224,7 +220,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
+                            android:id="@+id/textView3"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -246,7 +242,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -276,7 +271,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
+                            android:id="@+id/textView4"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -297,7 +292,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -327,7 +321,6 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -348,7 +341,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -378,7 +370,6 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -399,7 +390,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -429,7 +419,6 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -450,7 +439,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -480,7 +468,6 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -501,7 +488,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -531,7 +517,6 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -552,7 +537,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -582,7 +566,6 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -603,7 +586,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -633,7 +615,6 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -654,7 +635,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -685,7 +665,6 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-                            android:id="@+id/textView1"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -706,7 +685,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"

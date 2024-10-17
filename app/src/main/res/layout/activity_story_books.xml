@@ -8,7 +8,6 @@
     tools:context=".StoryBooks"
     android:background="#FFFDC4">
 
-    <!-- Title TextView -->
     <TextView
         android:id="@+id/storyBookTextView"
         android:layout_width="wrap_content"
@@ -23,7 +22,6 @@
         android:layout_marginTop="80dp"
         android:textColor="@color/black"/>
 
-    <!-- ScrollView wrapping LinearLayout to make it scrollable -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -39,7 +37,6 @@
             android:gravity="center_horizontal"
             android:padding="10dp">
 
-            <!-- Buttons inside the ScrollView -->
             <Button
                 android:id="@+id/twoCatsBtn"
                 android:layout_width="302dp"
@@ -61,6 +58,7 @@
                 android:layout_marginTop="20dp"/>
 
             <Button
+                android:id="@+id/theUglyBtn"
                 android:layout_width="302dp"
                 android:layout_height="69dp"
                 android:text="The Ugly Duckling"
@@ -70,6 +68,7 @@
                 android:layout_marginTop="20dp"/>
 
             <Button
+                android:id="@+id/uglyTreeBtn"
                 android:layout_width="302dp"
                 android:layout_height="69dp"
                 android:text="The Ugly Tree"
