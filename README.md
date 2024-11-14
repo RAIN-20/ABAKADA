@@ -17,3 +17,8 @@ MOBILE DEV
 ## 09/30/2024
 
 - add two cats and the monkey, and the lion and the mouse
+
+## 10/18/2024
+
+- add logo, notification, snack bar, toast, apk file
+

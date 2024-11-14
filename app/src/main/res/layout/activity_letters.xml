@@ -67,6 +67,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
+                            android:id="@+id/letter_a_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -88,6 +89,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/letter_b_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -118,7 +120,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
-
+                            android:id="@+id/letter_c_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -140,7 +142,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-
+                            android:id="@+id/letter_d_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -170,6 +172,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
+                            android:id="@+id/letter_e_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -190,6 +193,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/letter_f_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -370,6 +374,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
+                            android:id="@+id/letter_m_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -390,6 +395,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/letter_n_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -419,6 +425,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
+                            android:id="@+id/letter_o_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -439,6 +446,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/letter_p_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -468,6 +476,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
+                            android:id="@+id/letter_q_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -488,6 +497,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/letter_r_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -517,6 +527,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
+                            android:id="@+id/letter_s_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -537,6 +548,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/letter_t_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -566,6 +578,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
+                            android:id="@+id/letter_u_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -586,6 +599,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/letter_v_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -615,6 +629,7 @@
                         android:layout_marginRight="30dp">
 
                         <TextView
+                            android:id="@+id/letter_w_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
@@ -635,6 +650,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/letter_x_box"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@drawable/box"
