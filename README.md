@@ -22,3 +22,6 @@ MOBILE DEV
 
 - add logo, notification, snack bar, toast, apk file
 
+## 11/14/2024
+
+- add sounds for letters a to g
