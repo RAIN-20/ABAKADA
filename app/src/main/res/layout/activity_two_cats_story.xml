@@ -54,6 +54,7 @@
 <!--                android:textStyle="bold" />-->
 
             <TextView
+                android:id="@+id/part1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
@@ -69,6 +70,7 @@
                 android:src="@drawable/twocats2"
                 android:layout_margin="15dp"/>
             <TextView
+                android:id="@+id/part2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
@@ -84,6 +86,7 @@
                 android:src="@drawable/twocats3"
                 android:layout_margin="15dp"/>
             <TextView
+                android:id="@+id/part3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"

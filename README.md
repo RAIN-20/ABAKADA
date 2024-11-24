@@ -25,3 +25,8 @@ MOBILE DEV
 ## 11/14/2024
 
 - add sounds for letters a to g
+
+## 11/15/2024
+
+- add text to speech for letters
+
