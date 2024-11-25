@@ -30,3 +30,8 @@ MOBILE DEV
 
 - add text to speech for letters
 
+## 11/24/2024
+
+- add text to speech for numbers and two cats and monkeys
+
+
