@@ -34,4 +34,9 @@ MOBILE DEV
 
 - add text to speech for numbers and two cats and monkeys
 
+## 11/25/2024
+
+- add 10 to 100 numbers
+
+
 

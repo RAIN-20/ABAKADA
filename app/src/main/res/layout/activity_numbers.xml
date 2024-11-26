@@ -767,7 +767,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="15dp"
-                            android:text="Eighteen"
+                            android:text="Twenty"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             app:layout_constraintBottom_toBottomOf="@+id/textView20"
