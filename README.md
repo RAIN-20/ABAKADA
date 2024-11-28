@@ -38,5 +38,8 @@ MOBILE DEV
 
 - add 10 to 100 numbers
 
+## 11/26/2024
+
+- add text to speech number 10 to 100
 
 

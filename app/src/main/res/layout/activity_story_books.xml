@@ -78,6 +78,7 @@
                 android:layout_marginTop="20dp"/>
 
             <Button
+                android:id="@+id/jackandbeansBtn"
                 android:layout_width="302dp"
                 android:layout_height="69dp"
                 android:text="Jack and The Beanstalk"
@@ -87,6 +88,7 @@
                 android:layout_marginTop="20dp"/>
 
             <Button
+                android:id="@+id/snowwhiteBtn"
                 android:layout_width="302dp"
                 android:layout_height="69dp"
                 android:text="Snow White and the seven dwarfs"
