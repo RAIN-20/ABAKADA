@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 
+
+
 class StoryBooks : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +20,7 @@ class StoryBooks : AppCompatActivity() {
         val uglyytree: Button = findViewById(R.id. uglyTreeBtn)
         val jackandbeans: Button = findViewById(R.id. jackandbeansBtn)
         val snowhite: Button = findViewById(R.id. snowwhiteBtn)
+        val cleverfox: Button = findViewById(R.id. cleverfoxBtn)
 
 
         twoCats.setOnClickListener {
@@ -48,6 +51,12 @@ class StoryBooks : AppCompatActivity() {
             val intent = Intent (this@StoryBooks, snow_white::class.java)
             startActivity(intent)
         }
+        cleverfox.setOnClickListener {
+            val intent = Intent (this@StoryBooks, clever_fox::class.java)
+            startActivity(intent)
+        }
+
+
 
 
 

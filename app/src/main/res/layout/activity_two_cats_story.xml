@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EAEFE4"
+    android:background="@color/white"
     tools:context=".twoCatsStory">
 
 
@@ -12,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,80 +24,85 @@
 
 
             <TextView
-                android:layout_marginTop="50dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
                 android:fontFamily="monospace"
                 android:gravity="center"
                 android:text="TWO CATS AND THE MONKEY"
+                android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:textStyle="bold" />
 
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/twocats1"
-                android:layout_margin="15dp"/>
+                android:layout_margin="15dp"
+                android:src="@drawable/twocats1" />
 
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:fontFamily="monospace"-->
-<!--                android:text=""-->
-<!--                android:textAllCaps="false"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20dp"-->
-<!--                android:textStyle="bold" />-->
+            <!--            <TextView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:fontFamily="monospace"-->
+            <!--                android:text=""-->
+            <!--                android:textAllCaps="false"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="20dp"-->
+            <!--                android:textStyle="bold" />-->
 
             <TextView
                 android:id="@+id/part1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
+                android:fontFamily="monospace"
                 android:text="@string/twoCatsStory1"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/twocats2"
-                android:layout_margin="15dp"/>
+                android:layout_margin="15dp"
+                android:src="@drawable/twocats2" />
+
             <TextView
                 android:id="@+id/part2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
+                android:fontFamily="monospace"
                 android:text="@string/twoCatsStory2"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="22dp"
+                android:textStyle="bold" />
 
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/twocats3"
-                android:layout_margin="15dp"/>
+                android:layout_margin="15dp"
+                android:src="@drawable/twocats3" />
+
             <TextView
                 android:id="@+id/part3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="monospace"
                 android:text="@string/twoCatsStory3"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="15dp"
-                android:layout_marginBottom="50dp"/>
-
-
-
+                android:textSize="22dp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>

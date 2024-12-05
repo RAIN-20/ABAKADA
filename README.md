@@ -42,4 +42,9 @@ MOBILE DEV
 
 - add text to speech number 10 to 100
 
+## 11/29/2024
+
+- add jack and the beanstalk, snow white and the seven dwarves
+
+
 
