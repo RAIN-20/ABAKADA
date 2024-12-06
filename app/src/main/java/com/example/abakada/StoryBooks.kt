@@ -12,8 +12,6 @@ class StoryBooks : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_story_books)
-
-
         val twoCats: Button = findViewById(R.id.twoCatsBtn)
         val theLion: Button = findViewById(R.id. theLionBtn)
         val theUgly: Button = findViewById(R.id. theUglyBtn)

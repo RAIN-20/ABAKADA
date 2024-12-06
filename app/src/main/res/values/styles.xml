@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextTitleLarge">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/silkscreen</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="TextTitleMedium">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/silkscreen</item>
+    </style>
+    <style name="TextStory">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/chilanka</item>
+    </style>
+    <style name="TextModules">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/joti_one</item>
+    </style>
+    <style name="TextInput">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/single_day</item>
+    </style>
+    <style name="TextModuleBody">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/kadwa</item>
+    </style>
+    <style name="TextQuizzes">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/chelsea_market</item>
+    </style>
+    <style name="TextButton">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/silkscreen</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+</resources>

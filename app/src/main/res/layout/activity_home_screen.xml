@@ -14,9 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="CATEGORIES"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        style="@style/TextTitleLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -53,9 +51,7 @@
                     android:layout_gravity="center"
                     android:text="Story\nBooks"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/TextTitleMedium" />
 
             </LinearLayout>
 
@@ -83,9 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Modules"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/TextTitleMedium"/>
 
             </LinearLayout>
 
@@ -114,9 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Quizzes"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/TextTitleMedium" />
 
             </LinearLayout>
 
@@ -142,9 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="About Us"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/TextTitleMedium" />
 
             </LinearLayout>
 

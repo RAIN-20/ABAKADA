@@ -2,7 +2,6 @@ package com.example.abakada
 
 import ReminderReceiver
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +11,6 @@ import android.app.PendingIntent
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
-import android.content.BroadcastReceiver
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -22,9 +20,12 @@ import com.google.android.material.snackbar.Snackbar
 import android.view.View
 import java.util.Calendar
 import android.widget.Toast
+import com.example.abakada.auth.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var firebaseAuth: FirebaseAuth
     companion object {
         private const val NOTIFICATION_PERMISSION_REQUEST_CODE = 1002
         private const val CHANNEL_ID = "simple_notification_channel"
@@ -38,7 +39,23 @@ class MainActivity : AppCompatActivity() {
         // Find a view to anchor the Snackbar (usually a CoordinatorLayout or any view in the layout)
         val view = findViewById<View>(R.id.rootLayout)
         // Change this to your actual layout ID
-
+        firebaseAuth = FirebaseAuth.getInstance()
+        val firebaseUser: FirebaseUser? = firebaseAuth.currentUser
+        if (firebaseUser != null) {
+            startActivity(
+                Intent(
+                    this@MainActivity,
+                    HomeScreen::class.java
+                ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            )
+            finish()
+        }else{
+            Handler().postDelayed({
+                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }, 3000)
+        }
         // Show Snackbar
         showSnackbar(view)
 
@@ -62,10 +79,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         // Redirect to HomeScreen after 3 seconds
-        Handler().postDelayed({
-            val intent = Intent(this@MainActivity, HomeScreen::class.java)
-            startActivity(intent)
-        }, 3000)
+
     }
 
     private fun showSnackbar(view: View) {

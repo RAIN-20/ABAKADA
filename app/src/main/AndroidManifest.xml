@@ -15,6 +15,18 @@
         android:theme="@style/Theme.ABAKADA"
         tools:targetApi="31">
         <activity
+            android:name=".teacher.TeacherDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".student.StoryBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".clever_fox"
             android:exported="false" />
         <activity
