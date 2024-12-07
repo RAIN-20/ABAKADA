@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="25dp"
+    android:background="@drawable/text_input"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        >
+        <ImageButton
+            android:id="@+id/removePartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
+            style="@style/TextButton"
+            android:backgroundTint="@android:color/transparent"
+            />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/select_image_button"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/dashed_border"
+        style="@style/TextButton"
+        android:src="@drawable/ic_image"
+        android:layout_marginVertical="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        />
+
+    <EditText
+        android:id="@+id/partTextEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Story Part"
+        style="@style/TextInput"
+        android:background="@drawable/text_input"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:inputType="textMultiLine"
+        />
+
+
+</LinearLayout>

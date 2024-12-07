@@ -7,9 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.abakada.databinding.StoryItemLayoutBinding
 data class StoryData(
-    val id: String = "", // Assuming you have an ID for each story
+    val id: String = "",
     val title: String = "",
-    // ... other story properties ...
 )
 class StoryAdapter : ListAdapter<StoryData, StoryAdapter.StoryViewHolder>(StoryDiffCallback()) {
 

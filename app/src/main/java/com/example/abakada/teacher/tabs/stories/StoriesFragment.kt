@@ -29,7 +29,12 @@ class StoriesFragment : Fragment() {
         adapter = StoryAdapter()
         binding.storiesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.storiesRecyclerView.adapter = adapter
+
         fetchStoriesFromFirebase()
+        binding.addArticlesButton.setOnClickListener {
+            val intent = Intent(requireContext(), AddStoriesActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
 
