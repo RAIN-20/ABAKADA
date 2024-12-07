@@ -14,7 +14,9 @@ import com.example.abakada.databinding.ActivitySignUpBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.type.DateTime
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
@@ -77,7 +79,8 @@ class SignUpActivity : AppCompatActivity() {
                     val userData = hashMapOf(
                         "name" to name,
                         "email" to email,
-                        "role" to selectedRole
+                        "role" to selectedRole,
+                        "created_at" to FieldValue.serverTimestamp()
                     )
 
                     db.collection("users").document(user!!.uid)

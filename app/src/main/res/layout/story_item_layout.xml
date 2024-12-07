@@ -8,10 +8,11 @@
     android:layout_margin="20dp"
     app:contentPadding="10dp">
     <TextView
-        android:id="@+id/story_title"
+        android:id="@+id/storyTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         style="@style/TextStory"
+        android:text="@{story.title}"
         android:paddingVertical="8dp"
         />
 </androidx.cardview.widget.CardView>

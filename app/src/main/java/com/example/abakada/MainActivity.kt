@@ -21,8 +21,10 @@ import android.view.View
 import java.util.Calendar
 import android.widget.Toast
 import com.example.abakada.auth.LoginActivity
+import com.example.abakada.teacher.TeacherDashboardActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
@@ -42,13 +44,26 @@ class MainActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         val firebaseUser: FirebaseUser? = firebaseAuth.currentUser
         if (firebaseUser != null) {
-            startActivity(
-                Intent(
-                    this@MainActivity,
-                    HomeScreen::class.java
-                ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            )
-            finish()
+            val db = FirebaseFirestore.getInstance()
+            val userRef = db.collection("users").document(firebaseUser.uid!!)
+
+            userRef.get().addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    val role = document.getString("role")
+
+                    // Navigate to the appropriate screen based on role
+                    val intent = if (role == "Teacher") {
+                        Intent(this, TeacherDashboardActivity::class.java)
+                    } else {
+                        Intent(this, HomeScreen::class.java)
+                    }
+                    startActivity(intent)
+                    finish()
+                }
+            }.addOnFailureListener { exception ->
+                // Handle errors in fetching user data
+                Toast.makeText(baseContext, "Please Try again Later", Toast.LENGTH_SHORT).show()
+            }
         }else{
             Handler().postDelayed({
                 val intent = Intent(this@MainActivity, LoginActivity::class.java)

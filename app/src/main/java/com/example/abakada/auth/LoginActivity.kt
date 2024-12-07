@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
                             val role = document.getString("role")
 
                             // Navigate to the appropriate screen based on role
-                            val intent = if (role == "teacher") {
+                            val intent = if (role == "Teacher") {
                                 Intent(this, TeacherDashboardActivity::class.java)
                             } else {
                                 Intent(this, HomeScreen::class.java)
