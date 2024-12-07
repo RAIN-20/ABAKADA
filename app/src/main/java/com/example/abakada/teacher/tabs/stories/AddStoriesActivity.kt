@@ -21,6 +21,7 @@ import com.example.abakada.R
 import com.example.abakada.databinding.ActivityAddStoriesBinding
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import java.util.UUID
@@ -148,7 +149,8 @@ class AddStoriesActivity : AppCompatActivity() {
                 // Create a map to store story data
                 val storyData = hashMapOf(
                     "title" to storyTitle,
-                    "parts" to storyParts.map { hashMapOf("imageUrl" to it.imageUrl, "text" to it.text) }
+                    "parts" to storyParts.map { hashMapOf("imageUrl" to it.imageUrl, "text" to it.text) },
+                    "created_at" to FieldValue.serverTimestamp()
                 )
 
                 // Save story data to Firestore
