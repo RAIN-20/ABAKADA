@@ -1,5 +1,6 @@
 package com.example.abakada.student
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -15,18 +16,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class StoryBookActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStoryBookBinding
-    val storyBooks = mutableListOf<StoryBook>()
+    private val storyBooks = mutableListOf<StoryBook>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStoryBookBinding.inflate(layoutInflater) // Inflate layout
         setContentView(binding.root)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_story_book)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
         fetchStoryBooks()
         binding.backButton.setOnClickListener {
             finish()
@@ -34,20 +29,23 @@ class StoryBookActivity : AppCompatActivity() {
     }
     private fun fetchStoryBooks() {
         val db = FirebaseFirestore.getInstance()
-        val storyBooksCollection = db.collection("storybooks")
+        val storyBooksCollection = db.collection("stories")
 
         storyBooksCollection.get()
             .addOnSuccessListener { querySnapshot ->
-
                 for (document in querySnapshot) {
-                    val title = document.getString("title") ?: ""
-                    storyBooks.add(StoryBook(title))
+                    val title = document.getString("title")
+                    val documentId = document.id // Get document ID
+                    storyBooks.add(StoryBook(title!!, documentId)) // Pass documentId to StoryBook
                 }
 
-                val adapter = StoryBookAdapter(storyBooks)
+                val adapter = StoryBookAdapter(storyBooks) { documentId ->
+                    val intent = Intent(this, StoryDetailsActivity::class.java)
+                    intent.putExtra("storyId", documentId)
+                    startActivity(intent)
+                }
                 binding.storyBooksRecyclerView.adapter = adapter
-                binding.storyBooksRecyclerView.layoutManager =
-                    LinearLayoutManager(this)
+                binding.storyBooksRecyclerView.layoutManager = LinearLayoutManager(this)
             }
             .addOnFailureListener { exception ->
                 Log.e("StoryBookActivity", "Error fetching story books", exception)

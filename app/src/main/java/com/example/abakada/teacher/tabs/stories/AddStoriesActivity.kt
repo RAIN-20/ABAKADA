@@ -19,6 +19,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.abakada.R
 import com.example.abakada.databinding.ActivityAddStoriesBinding
+import com.example.abakada.utils.LoadingOverlayUtils
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.firestore.FieldValue
@@ -37,11 +38,9 @@ class AddStoriesActivity : AppCompatActivity() {
                 val data: Intent? = result.data
                 val imageUri: Uri? = data?.data
                 imageUri?.let { uri ->
-                    // Find the corresponding StoryPart and store the Uri
                     val index = storyParts.indexOfFirst { it.imageUrl == null }
                     if (index != -1) {
                         storyParts[index].imageUrl = uri
-                        // You can optionally display a placeholder or thumbnail here
                         storyParts[index].imageView?.setImageURI(uri)
                     }
                 }
@@ -53,11 +52,9 @@ class AddStoriesActivity : AppCompatActivity() {
         setContentView(binding.root)
         enableEdgeToEdge()
 
-        // Set click listeners
         binding.addPartButton.setOnClickListener { addStoryPart() }
         binding.saveStoryButton.setOnClickListener { saveStory() }
-
-        // Set window insets listener
+        binding.backButton.setOnClickListener { finish() }
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -70,6 +67,7 @@ class AddStoriesActivity : AppCompatActivity() {
         val selectImageButton = storyPartLayout.findViewById<ImageView>(R.id.select_image_button)
         val removePartButton = storyPartLayout.findViewById<ImageButton>(R.id.removePartButton)
         val partTextEditText = storyPartLayout.findViewById<EditText>(R.id.partTextEditText)
+        storyParts.add(StoryPart(null, "", selectImageButton))
         selectImageButton.setOnClickListener {
             openGallery()
             val index = binding.storyPartsContainer.indexOfChild(storyPartLayout)
@@ -78,27 +76,24 @@ class AddStoriesActivity : AppCompatActivity() {
 
         removePartButton.setOnClickListener {
             binding.storyPartsContainer.removeView(storyPartLayout)
-            storyParts.remove(StoryPart(null, ""))
+            storyParts.remove(StoryPart(null, "",selectImageButton))
         }
 
         partTextEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {
-                // Update the text property of the corresponding StoryPart object
                 val index = binding.storyPartsContainer.indexOfChild(storyPartLayout)
                 storyParts[index].text = s?.toString() ?: ""
             }
         })
 
         binding.storyPartsContainer.addView(storyPartLayout)
-        storyParts.add(StoryPart(null, "", null))
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val imageUri: Uri? = data?.data
         imageUri?.let { uri ->
-            // Find the corresponding ImageView using the index
             val index = storyParts.indexOfFirst { it.imageView != null && it.imageUrl == null }
             if (index != -1) {
                 storyParts[index].imageUrl = uri
@@ -114,7 +109,6 @@ class AddStoriesActivity : AppCompatActivity() {
     private fun saveStory() {
         val storyTitle = binding.storyTitleEditText.text.toString()
 
-        // Validate data (ensure title and parts are filled)
         if (storyTitle.isEmpty() || storyParts.isEmpty()) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             return
@@ -124,7 +118,7 @@ class AddStoriesActivity : AppCompatActivity() {
     }
     private fun uploadImagesAndSaveStory(storyTitle: String) {
         val uploadTasks = mutableListOf<Pair<Int, Task<Uri>>>()
-
+        LoadingOverlayUtils.showLoadingOverlay(this)
         for ((index, storyPart) in storyParts.withIndex()) {
             storyPart.imageUrl?.let { imageUri ->
                 val storageRef = storage.reference.child("story_images/${UUID.randomUUID()}")
@@ -146,24 +140,24 @@ class AddStoriesActivity : AppCompatActivity() {
                     storyParts[uploadTasks[i].first].imageUrl = downloadUrl
                 }
 
-                // Create a map to store story data
                 val storyData = hashMapOf(
                     "title" to storyTitle,
                     "parts" to storyParts.map { hashMapOf("imageUrl" to it.imageUrl, "text" to it.text) },
                     "created_at" to FieldValue.serverTimestamp()
                 )
 
-                // Save story data to Firestore
                 firestore.collection("stories").add(storyData)
                     .addOnSuccessListener {
+                        LoadingOverlayUtils.hideLoadingOverlay(this)
                         Toast.makeText(this, "Story saved successfully", Toast.LENGTH_SHORT).show()
                         finish()
                     }.addOnFailureListener {
+                        LoadingOverlayUtils.hideLoadingOverlay(this)
                         Toast.makeText(this, "Failed to save story", Toast.LENGTH_SHORT).show()
                     }
             }
             .addOnFailureListener { exception ->
-                // Handle upload failure
+                LoadingOverlayUtils.hideLoadingOverlay(this)
                 Toast.makeText(this, "Image upload failed", Toast.LENGTH_SHORT).show()
             }
     }

@@ -11,6 +11,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.abakada.student.StoryBookActivity
 
 class HomeScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +46,7 @@ class HomeScreen : AppCompatActivity() {
 //        }
 
         storyBooksImage.setOnClickListener {
-            val intent = Intent(this@HomeScreen, StoryBooks::class.java)
+            val intent = Intent(this@HomeScreen, StoryBookActivity::class.java)
             startActivity(intent)
         }
 
