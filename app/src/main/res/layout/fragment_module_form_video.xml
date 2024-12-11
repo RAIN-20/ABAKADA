@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_marginBottom="50dp"
+    tools:context=".teacher.tabs.modules.ModuleFormVideoFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Youtube Link"
+            style="@style/TextInput"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
+            android:layout_marginBottom="5dp"
+            />
+        <EditText
+            android:id="@+id/link_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextInput"
+            android:textSize="30sp"
+            android:padding="10dp"
+            android:inputType="text"
+            android:background="@drawable/text_input"
+            android:hint="Enter Youtube Link" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Youtube Link"
+            style="@style/TextInput"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
+            android:layout_marginBottom="5dp"
+            />
+        <EditText
+            android:id="@+id/video_description_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/TextInput"
+            android:textSize="30sp"
+            android:padding="10dp"
+            android:inputType="textMultiLine"
+            android:background="@drawable/text_input"
+            android:hint="Enter Video Description" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/greenDark"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="36dp"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            style="@style/TextStory"
+            android:textSize="16sp"
+            android:paddingTop="7dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>

@@ -55,7 +55,9 @@ class AddStoriesActivity : AppCompatActivity() {
         // Set click listeners
         binding.addPartButton.setOnClickListener { addStoryPart() }
         binding.saveStoryButton.setOnClickListener { saveStory() }
-
+        binding.backButton.setOnClickListener {
+            finish()
+        }
         // Set window insets listener
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

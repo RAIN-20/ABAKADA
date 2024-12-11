@@ -4,11 +4,14 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_IMAGES"
         tools:ignore="SelectedPhotoAccess" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"
         tools:ignore="ScopedStorage" />
 
@@ -22,6 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ABAKADA"
         tools:targetApi="31">
+        <activity
+            android:name=".teacher.tabs.modules.AddModulesActivity"
+            android:exported="false" />
         <activity
             android:name=".teacher.tabs.stories.AddStoriesActivity"
             android:exported="false" />
