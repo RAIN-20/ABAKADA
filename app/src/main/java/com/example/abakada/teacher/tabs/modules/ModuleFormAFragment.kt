@@ -49,7 +49,10 @@ class ModuleFormAFragment : Fragment() {
         }
 
         binding.selectImageButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+                type = "image/*" // Filter to only show image files
+                addCategory(Intent.CATEGORY_OPENABLE) // Allow the user to select a file
+            }
             pickImage.launch(intent)
         }
 

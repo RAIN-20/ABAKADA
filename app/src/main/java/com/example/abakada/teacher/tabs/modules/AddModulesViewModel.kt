@@ -10,3 +10,4 @@ class AddModulesViewModel : ViewModel() {
         moduleData.value = ModuleData()
     }
 }
+
