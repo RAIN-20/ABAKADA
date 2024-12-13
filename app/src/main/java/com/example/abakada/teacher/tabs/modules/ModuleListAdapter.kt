@@ -6,39 +6,34 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.abakada.R
 import com.example.abakada.databinding.ModulesItemLayoutBinding
 
-class ModuleListAdapter : ListAdapter<ModuleData, ModuleListAdapter.ModulePartViewHolder>(ModulePartDiffCallback()) {
+class ModuleListAdapter : ListAdapter<ModuleData, ModuleListAdapter.ModuleViewHolder>(ModuleDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ModulePartViewHolder {
-        val binding = ModulesItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ModulePartViewHolder(binding)
-    }
+    class ModuleViewHolder(private val binding: ModulesItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(moduleData: ModuleData) {
+            binding.moduleName.text = moduleData.name
 
-    override fun onBindViewHolder(holder: ModulePartViewHolder, position: Int) {
-        val story = getItem(position)
-        holder.bind(story)
-    }
-
-    class ModulePartViewHolder(private val binding: ModulesItemLayoutBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(module: ModuleData) {
-            binding.moduleName.text = module.name
             Glide.with(binding.root.context)
-                .load(module.imageUrl.toString())
-                .placeholder(R.drawable.placeholder_image)
-                .error(R.drawable.placeholder_image)
+                .load(moduleData.imageUrl)
                 .into(binding.moduleImage)
-
         }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ModuleViewHolder {
+        val binding = ModulesItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ModuleViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: ModuleViewHolder, position: Int) {
+        val moduleData = getItem(position)
+        holder.bind(moduleData)
     }
 }
 
-class ModulePartDiffCallback : DiffUtil.ItemCallback<ModuleData>() {
+class ModuleDiffCallback : DiffUtil.ItemCallback<ModuleData>() {
     override fun areItemsTheSame(oldItem: ModuleData, newItem: ModuleData): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem.name == newItem.name
     }
 
     override fun areContentsTheSame(oldItem: ModuleData, newItem: ModuleData): Boolean {

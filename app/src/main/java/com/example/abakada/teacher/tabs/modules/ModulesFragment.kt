@@ -47,12 +47,12 @@ class ModulesFragment : Fragment() {
                 for (document in documents) {
                     val moduleName = document.getString("name")
                     val moduleId = document.id
-                    val moduleImageUrl = document.getString("imageUrl")
-                    val moduleData = ModuleData(id = moduleId, name = moduleName!!, imageUrl = moduleImageUrl!!.toUri())
+                    val moduleImageUrl = document.getString("imageUrl")?.toUri()
+                    val moduleData = ModuleData(id = moduleId, name = moduleName!!, imageUrl = moduleImageUrl)
                     Log.d(TAG, "Story Title: $moduleName")
                     moduleList.add(moduleData)
                 }
-                adapter.submitList(moduleList.toList())
+                adapter.submitList(moduleList)
                 if (moduleList.isEmpty()) {
                     binding.emptyView.visibility = View.VISIBLE
                     binding.modulesRecyclerView.visibility = View.GONE

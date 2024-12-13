@@ -55,10 +55,10 @@ class StoryDetailsActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     val imageView = ImageView(this)
                     imageView.layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
-                        350
+                        400,
                     )
                     imageView.scaleType = ImageView.ScaleType.FIT_CENTER
-                    imageView.setPadding(0, 10, 0, 10)
+                    imageView.setPadding(0, 20, 0, 20)
                     Glide.with(this)
                         .load(storyPart.imageUrl)
                         .into(imageView)
