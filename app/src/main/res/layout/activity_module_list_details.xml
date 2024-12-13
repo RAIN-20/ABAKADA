@@ -1,11 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/green"
     tools:context=".student.ModuleListDetailsActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:backgroundTint="@color/greenDark"
+        android:gravity="center"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:id="@+id/back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_back"
+                    android:backgroundTint="@android:color/transparent"
+                    />
+                <TextView
+                    android:id="@+id/appbar_title"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/TextTitleLarge"
+                    android:textAlignment="textStart"
+                    />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center|top"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/module_image"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button"
+                android:backgroundTint="@color/pink"
+                />
+            <TextView
+                android:id="@+id/module_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextModules"
+                android:padding="10dp"
+                />
+        </LinearLayout>
+         <GridLayout
+             android:id="@+id/parts_container"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:columnCount="2"
+             android:padding="8dp">
+
+         </GridLayout>
+    </LinearLayout>
 </LinearLayout>

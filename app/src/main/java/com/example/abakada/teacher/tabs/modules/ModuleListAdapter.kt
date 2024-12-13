@@ -1,5 +1,6 @@
 package com.example.abakada.teacher.tabs.modules
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -7,16 +8,33 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.abakada.databinding.ModulesItemLayoutBinding
+import com.example.abakada.student.ModuleListDetailsActivity
+import com.example.abakada.student.ModuleVideoActivity
 
 class ModuleListAdapter : ListAdapter<ModuleData, ModuleListAdapter.ModuleViewHolder>(ModuleDiffCallback()) {
 
     class ModuleViewHolder(private val binding: ModulesItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(moduleData: ModuleData) {
             binding.moduleName.text = moduleData.name
-
             Glide.with(binding.root.context)
                 .load(moduleData.imageUrl)
                 .into(binding.moduleImage)
+
+            binding.cardButton.setOnClickListener {
+                if(moduleData.type == "Video"){
+                    val intent = Intent(binding.root.context, ModuleVideoActivity::class.java)
+                    intent.putExtra("moduleName", moduleData.name)
+                    intent.putExtra("videoLink", moduleData.video.link)
+                    intent.putExtra("videoDescription", moduleData.video.description)
+                    binding.root.context.startActivity(intent)
+                }else{
+                    val intent = Intent(binding.root.context, ModuleListDetailsActivity::class.java)
+                    intent.putExtra("moduleName", moduleData.name)
+                    intent.putExtra("moduleImg", moduleData.imageUrl.toString())
+                    intent.putExtra("moduleId", moduleData.id)
+                    binding.root.context.startActivity(intent)
+                }
+            }
         }
     }
 
@@ -33,7 +51,7 @@ class ModuleListAdapter : ListAdapter<ModuleData, ModuleListAdapter.ModuleViewHo
 
 class ModuleDiffCallback : DiffUtil.ItemCallback<ModuleData>() {
     override fun areItemsTheSame(oldItem: ModuleData, newItem: ModuleData): Boolean {
-        return oldItem.name == newItem.name
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItem: ModuleData, newItem: ModuleData): Boolean {

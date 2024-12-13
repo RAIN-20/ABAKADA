@@ -11,6 +11,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.abakada.student.ModulesActivity
 import com.example.abakada.student.StoryBookActivity
 
 class HomeScreen : AppCompatActivity() {
@@ -35,10 +36,10 @@ class HomeScreen : AppCompatActivity() {
 //            startActivity(intent)
 //        }
 //
-//        modulesImage.setOnClickListener {
-//            val intent = Intent(this@HomeScreen, ModulesActivity::class.java)
-//            startActivity(intent)
-//        }
+        modulesImage.setOnClickListener {
+            val intent = Intent(this@HomeScreen, ModulesActivity::class.java)
+            startActivity(intent)
+        }
 //
 //        quizzesImage.setOnClickListener {
 //            val intent = Intent(this@HomeScreen, QuizzesActivity::class.java)
@@ -55,10 +56,10 @@ class HomeScreen : AppCompatActivity() {
             startActivity(intent)
         }
 
-        modulesImage.setOnClickListener {
-            val intent = Intent(this@HomeScreen, modules_screen::class.java)
-            startActivity(intent)
-        }
+//        modulesImage.setOnClickListener {
+//            val intent = Intent(this@HomeScreen, modules_screen::class.java)
+//            startActivity(intent)
+//        }
 
         aboutUsImage.setOnClickListener {
             val intent = Intent(this@HomeScreen, AboutUs::class.java)
