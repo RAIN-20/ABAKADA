@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/yellow"
-    tools:context=".teacher.tabs.stories.StoriesFragment">
+    tools:context=".student.StoryDetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -22,39 +21,52 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
+                <ImageButton
+                    android:id="@+id/back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_back"
+                    android:backgroundTint="@color/yellowDark"
+                    />
                 <TextView
+                    android:id="@+id/appbar_title"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Story Books"
                     style="@style/TextTitleLarge"
                     android:textAlignment="textStart"
-                    />
-                <ImageButton
-                    android:id="@+id/add_articles_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_add"
-                    android:backgroundTint="@color/yellowDark"
                     />
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/stories_recycler_view"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingVertical="10dp"
-        />
-    <TextView
-        android:id="@+id/empty_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="No stories yet"
-        style="@style/TextStory"
-        android:visibility="gone"
-        android:layout_gravity="center" />
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="20dp"
+            >
+            <TextView
+                android:id="@+id/story_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextStory"
+                android:textAlignment="center"
+                android:textSize="27sp"
+                />
+            <LinearLayout
+                android:id="@+id/storyPartsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.abakada.student
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -21,11 +22,6 @@ class StoryBookActivity : AppCompatActivity() {
         binding = ActivityStoryBookBinding.inflate(layoutInflater) // Inflate layout
         setContentView(binding.root)
         enableEdgeToEdge()
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
         fetchStoryBooks()
         binding.backButton.setOnClickListener {
             finish()
@@ -37,17 +33,19 @@ class StoryBookActivity : AppCompatActivity() {
 
         storyBooksCollection.get()
             .addOnSuccessListener { querySnapshot ->
-
                 for (document in querySnapshot) {
-                    val title = document.getString("title") ?: ""
-                    storyBooks.add(StoryBook(title))
-                    Log.d("StoryBookActivity", "$storyBooks")
+                    val title = document.getString("title")
+                    val documentId = document.id // Get document ID
+                    storyBooks.add(StoryBook(title!!, documentId)) // Pass documentId to StoryBook
                 }
 
-                val adapter = StoryBookAdapter(storyBooks)
+                val adapter = StoryBookAdapter(storyBooks) { documentId ->
+                    val intent = Intent(this, StoryDetailsActivity::class.java)
+                    intent.putExtra("storyId", documentId)
+                    startActivity(intent)
+                }
                 binding.storyBooksRecyclerView.adapter = adapter
-                binding.storyBooksRecyclerView.layoutManager =
-                    LinearLayoutManager(this)
+                binding.storyBooksRecyclerView.layoutManager = LinearLayoutManager(this)
             }
             .addOnFailureListener { exception ->
                 Log.e("StoryBookActivity", "Error fetching story books", exception)
