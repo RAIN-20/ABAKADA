@@ -15,13 +15,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class StoryBookActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStoryBookBinding
-    val storyBooks = mutableListOf<StoryBook>()
+    private val storyBooks = mutableListOf<StoryBook>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStoryBookBinding.inflate(layoutInflater) // Inflate layout
         setContentView(binding.root)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_story_book)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -34,7 +33,7 @@ class StoryBookActivity : AppCompatActivity() {
     }
     private fun fetchStoryBooks() {
         val db = FirebaseFirestore.getInstance()
-        val storyBooksCollection = db.collection("storybooks")
+        val storyBooksCollection = db.collection("stories")
 
         storyBooksCollection.get()
             .addOnSuccessListener { querySnapshot ->
@@ -42,6 +41,7 @@ class StoryBookActivity : AppCompatActivity() {
                 for (document in querySnapshot) {
                     val title = document.getString("title") ?: ""
                     storyBooks.add(StoryBook(title))
+                    Log.d("StoryBookActivity", "$storyBooks")
                 }
 
                 val adapter = StoryBookAdapter(storyBooks)

@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.abakada.databinding.FragmentModulesBinding
 import com.google.firebase.firestore.FirebaseFirestore
@@ -46,7 +47,8 @@ class ModulesFragment : Fragment() {
                 for (document in documents) {
                     val moduleName = document.getString("name")
                     val moduleId = document.id
-                    val moduleData = ModuleData(id = moduleId, name = moduleName!!)
+                    val moduleImageUrl = document.getString("imageUrl")
+                    val moduleData = ModuleData(id = moduleId, name = moduleName!!, imageUrl = moduleImageUrl!!.toUri())
                     Log.d(TAG, "Story Title: $moduleName")
                     moduleList.add(moduleData)
                 }

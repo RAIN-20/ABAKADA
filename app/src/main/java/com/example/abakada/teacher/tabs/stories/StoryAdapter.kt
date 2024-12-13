@@ -27,7 +27,6 @@ class StoryAdapter : ListAdapter<StoryData, StoryAdapter.StoryViewHolder>(StoryD
 
         fun bind(story: StoryData) {
             binding.storyTitle.text = story.title
-            // ... bind other story data to views ...
         }
     }
 }

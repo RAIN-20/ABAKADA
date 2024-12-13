@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.abakada.R
 import com.example.abakada.databinding.ModulesItemLayoutBinding
 
 class ModuleListAdapter : ListAdapter<ModuleData, ModuleListAdapter.ModulePartViewHolder>(ModulePartDiffCallback()) {
@@ -24,6 +26,12 @@ class ModuleListAdapter : ListAdapter<ModuleData, ModuleListAdapter.ModulePartVi
 
         fun bind(module: ModuleData) {
             binding.moduleName.text = module.name
+            Glide.with(binding.root.context)
+                .load(module.imageUrl.toString())
+                .placeholder(R.drawable.placeholder_image)
+                .error(R.drawable.placeholder_image)
+                .into(binding.moduleImage)
+
         }
     }
 }
