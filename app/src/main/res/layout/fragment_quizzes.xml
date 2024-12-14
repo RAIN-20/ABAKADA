@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/blue"
     tools:context=".teacher.tabs.quizzes.QuizzesFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -18,27 +19,91 @@
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways"
             >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                >
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Quizzes"
                 style="@style/TextTitleLarge"
+                android:textAlignment="textStart"
                 />
+            <ImageButton
+                android:id="@+id/add_quizzes_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add"
+                android:background="@drawable/button"
+                android:padding="10dp"
+                />
+            </LinearLayout>
+
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/quizzes_recycler_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        />
-    <TextView
-        android:id="@+id/empty_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="No quizzes yet"
-        style="@style/TextQuizzes"
-        android:visibility="gone"
-        android:layout_gravity="center" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            >
+            <Button
+                android:id="@+id/easy_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                style="@style/TextButton"
+                android:backgroundTint="@color/light_blue_600"
+                android:text="Easy"
+                android:fontFamily="@font/chelsea_market"
+                android:layout_marginRight="6dp"
+                />
+            <Button
+                android:id="@+id/medium_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                style="@style/TextButton"
+                android:backgroundTint="@color/light_blue_600"
+                android:text="Medium"
+                android:fontFamily="@font/chelsea_market"
+                android:layout_marginRight="6dp"
+                />
+            <Button
+                android:id="@+id/hard_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                style="@style/TextButton"
+                android:backgroundTint="@color/light_blue_600"
+                android:text="Hard"
+                android:fontFamily="@font/chelsea_market"
+                android:layout_marginRight="6dp"
+                />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/quizzes_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="25dp"
+            />
+        <TextView
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="No quizzes yet"
+            style="@style/TextQuizzes"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 </LinearLayout>

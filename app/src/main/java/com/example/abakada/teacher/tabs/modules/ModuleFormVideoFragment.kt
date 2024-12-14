@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.add
 import com.example.abakada.databinding.FragmentModuleFormVideoBinding
+import com.example.abakada.utils.LoadingOverlayUtils
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
@@ -69,10 +70,12 @@ class ModuleFormVideoFragment : Fragment() {
             .addOnSuccessListener { documentReference ->
                 Log.d("ModuleVideoActivity", "Module data saved with ID: ${documentReference.id}")
                 Toast.makeText(requireContext(), "Module data saved", Toast.LENGTH_SHORT).show()
+                LoadingOverlayUtils.hideLoadingOverlay(requireActivity())
                 requireActivity().finish()
             }
             .addOnFailureListener { e ->
                 Log.w("ModuleVideoActivity", "Error saving module data", e)
+                LoadingOverlayUtils.hideLoadingOverlay(requireActivity())
                 Toast.makeText(requireContext(), "Error saving module data: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
@@ -82,6 +85,7 @@ class ModuleFormVideoFragment : Fragment() {
         videoDescription: String,
         videoLink: String
     ) {
+        LoadingOverlayUtils.hideLoadingOverlay(requireActivity())
         val storageRef: StorageReference = FirebaseStorage.getInstance().reference
         val imageRef = storageRef.child("module_images/${UUID.randomUUID()}")
 
@@ -100,6 +104,7 @@ class ModuleFormVideoFragment : Fragment() {
                 saveModuleDataToFirestore(moduleName, downloadUrl.toString(), videoDescription, videoLink)
             } else {
                 // Handle failures
+                LoadingOverlayUtils.hideLoadingOverlay(requireActivity())
                 Log.w("ModuleVideoActivity", "Image upload failed: ", task.exception)
             }
         }

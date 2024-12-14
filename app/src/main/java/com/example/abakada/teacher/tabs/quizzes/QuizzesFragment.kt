@@ -1,5 +1,6 @@
 package com.example.abakada.teacher.tabs.quizzes
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,6 +19,11 @@ class QuizzesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentQuizzesBinding.inflate(inflater, container, false)
+
+        binding.addQuizzesButton.setOnClickListener {
+            val intent = Intent(requireContext(), CreateQuizActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
     override fun onDestroyView() {

@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.abakada.R
 import com.example.abakada.databinding.ActivitySignUpBinding
+import com.example.abakada.utils.LoadingOverlayUtils
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -46,6 +47,7 @@ class SignUpActivity : AppCompatActivity() {
 
     }
     private fun signUpUser() {
+        LoadingOverlayUtils.showLoadingOverlay(this)
         val email = binding.emailInput.text.toString()
         val name = binding.nameInput.text.toString()
         val password = binding.passwordInput.text.toString()
@@ -60,11 +62,13 @@ class SignUpActivity : AppCompatActivity() {
 
         if (email.isEmpty() || name.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            LoadingOverlayUtils.hideLoadingOverlay(this)
             return
         }
 
         if (password != confirmPassword) {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+            LoadingOverlayUtils.hideLoadingOverlay(this)
             return
         }
 
@@ -91,14 +95,19 @@ class SignUpActivity : AppCompatActivity() {
 
                             // Navigate to the main activity
                             val intent = Intent(this, LoginActivity::class.java)
+                            LoadingOverlayUtils.hideLoadingOverlay(this)
                             startActivity(intent)
                             finish()
                         }
                         .addOnFailureListener { e ->
                             Log.w(TAG, "Error adding user data to Firestore", e)
+                            LoadingOverlayUtils.hideLoadingOverlay(this)
                             Toast.makeText(this, "Error creating account", Toast.LENGTH_SHORT).show()
                         }
+
                 } else {
+
+                    LoadingOverlayUtils.hideLoadingOverlay(this)
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()

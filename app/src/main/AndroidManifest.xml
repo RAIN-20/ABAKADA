@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
@@ -27,8 +29,16 @@
         android:theme="@style/Theme.ABAKADA"
         tools:targetApi="31">
         <activity
-            android:name=".student.ModuleVideoActivity"
+            android:name=".WebViewActivity"
             android:exported="false" />
+        <activity
+            android:name=".teacher.tabs.quizzes.CreateQuizActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".student.ModuleVideoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".student.ModuleListDetailsActivity"
             android:exported="false" />
@@ -41,10 +51,12 @@
             android:theme="@style/Theme.ABAKADA" />
         <activity
             android:name=".teacher.tabs.modules.AddModulesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".teacher.tabs.stories.AddStoriesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".teacher.TeacherDashboardActivity"
             android:exported="false" />
@@ -53,10 +65,12 @@
             android:exported="false" />
         <activity
             android:name=".auth.SignUpActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".auth.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".clever_fox"
             android:exported="false" />

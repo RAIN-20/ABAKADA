@@ -21,6 +21,7 @@ import androidx.fragment.app.activityViewModels
 import com.example.abakada.R
 import com.example.abakada.databinding.FragmentModuleFormListBinding
 import com.example.abakada.teacher.tabs.stories.StoryPart
+import com.example.abakada.utils.LoadingOverlayUtils
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.firestore.FirebaseFirestore
@@ -62,8 +63,6 @@ class ModuleFormListFragment : Fragment() {
             val removeButton = modulePartView.findViewById<ImageView>(R.id.removePartButton)
             val partNameEditText = modulePartView.findViewById<EditText>(R.id.partTextEditText)
             val selectImageButton = modulePartView.findViewById<ImageView>(R.id.select_image_button)
-
-
 
             removeButton.setOnClickListener {
                 binding.moduleListItemContainer.removeView(modulePartView)
@@ -130,6 +129,7 @@ class ModuleFormListFragment : Fragment() {
     }
 
     private fun uploadAndSaveModuleData(data: ModuleData) {
+        LoadingOverlayUtils.showLoadingOverlay(requireActivity())
         val moduleImageUploadTask = uploadModuleImage(data.imageUrl)
         val partImagesUploadTask = uploadImagesAndGetLinks(data.parts)
 
@@ -146,6 +146,7 @@ class ModuleFormListFragment : Fragment() {
                 saveModuleDataToFirestore(updatedData)
             }
             .addOnFailureListener { e ->
+                LoadingOverlayUtils.hideLoadingOverlay(requireActivity())
                 Toast.makeText(requireContext(), "Error uploading images: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
@@ -161,7 +162,9 @@ class ModuleFormListFragment : Fragment() {
                 }
                 .continueWith { task -> task.result.toString() }
         } else {
+            LoadingOverlayUtils.hideLoadingOverlay(requireActivity())
             Tasks.forResult(null)
+
         }
     }
 
@@ -171,9 +174,11 @@ class ModuleFormListFragment : Fragment() {
             .addOnSuccessListener { documentReference ->
                 Toast.makeText(requireContext(), "Module data saved", Toast.LENGTH_SHORT).show()
                 requireActivity().finish()
+                LoadingOverlayUtils.hideLoadingOverlay(requireActivity())
             }
             .addOnFailureListener { e ->
                 Toast.makeText(requireContext(), "Error saving module data: ${e.message}", Toast.LENGTH_SHORT).show()
+                LoadingOverlayUtils.hideLoadingOverlay(requireActivity())
             }
     }
     override fun onDestroyView() {

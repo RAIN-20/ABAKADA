@@ -2,6 +2,7 @@ package com.example.abakada.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +12,9 @@ import com.example.abakada.HomeScreen
 import com.example.abakada.R
 import com.example.abakada.databinding.ActivityLoginBinding
 import com.example.abakada.teacher.TeacherDashboardActivity
+import com.example.abakada.utils.LoadingOverlayUtils
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
@@ -41,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
     private fun loginUser() {
+        LoadingOverlayUtils.showLoadingOverlay(this)
         val email = binding.emailInput.text.toString()
         val password = binding.passwordInput.text.toString()
 
@@ -69,6 +73,7 @@ class LoginActivity : AppCompatActivity() {
                             } else {
                                 Intent(this, HomeScreen::class.java)
                             }
+                            LoadingOverlayUtils.hideLoadingOverlay(this)
                             startActivity(intent)
                             finish()
                         } else {
@@ -77,11 +82,35 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }.addOnFailureListener { exception ->
                         // Handle errors in fetching user data
+                        LoadingOverlayUtils.hideLoadingOverlay(this)
                         Toast.makeText(baseContext, "Error fetching user data.", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     // Handle login failure
-                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    LoadingOverlayUtils.hideLoadingOverlay(this)
+                    val exception = task.exception
+                    if (exception is FirebaseAuthException) {
+                        val errorCode = exception.errorCode
+                        Log.e("LoginActivity", "Login failed with error code: $errorCode")
+                        // You can handle specific error codes here, e.g.:
+                        when (errorCode) {
+                            "ERROR_INVALID_EMAIL" -> {
+                                Toast.makeText(baseContext, "Invalid email format.", Toast.LENGTH_SHORT).show()
+                            }
+                            "ERROR_WRONG_PASSWORD" -> {
+                                Toast.makeText(baseContext, "Incorrect password.", Toast.LENGTH_SHORT).show()
+                            }
+                            "ERROR_USER_NOT_FOUND" -> {
+                                Toast.makeText(baseContext, "User not found.", Toast.LENGTH_SHORT).show()
+                            }
+                            else -> {
+                                Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    } else {
+                        Log.e("LoginActivity", "Login failed: ", exception)
+                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
     }

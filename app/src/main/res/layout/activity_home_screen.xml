@@ -5,19 +5,42 @@
     android:id="@+id/homeScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFDC4"
+    android:background="@color/yellow"
     tools:context=".HomeScreen">
 
-    <TextView
-        android:id="@+id/categories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="CATEGORIES"
-        style="@style/TextTitleLarge"
-        app:layout_constraintEnd_toEndOf="parent"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/yellow"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/appbar_title"
+                    style="@style/TextTitleLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="CATEGORIES"
+                    android:textAlignment="center" />
+                <ImageButton
+                    android:id="@+id/logout_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/ic_log_out" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -26,7 +49,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/categories">
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -46,12 +69,12 @@
                     android:src="@drawable/booksshelf" />
 
                 <TextView
+                    style="@style/TextTitleMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Story\nBooks"
-                    android:textAlignment="center"
-                    style="@style/TextTitleMedium" />
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
@@ -75,11 +98,11 @@
                     android:src="@drawable/bookbulb" />
 
                 <TextView
+                    style="@style/TextTitleMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Modules"
-                    style="@style/TextTitleMedium"/>
+                    android:text="Modules" />
 
             </LinearLayout>
 
@@ -104,11 +127,11 @@
                     android:src="@drawable/ribbontarget" />
 
                 <TextView
+                    style="@style/TextTitleMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Quizzes"
-                    style="@style/TextTitleMedium" />
+                    android:text="Quizzes" />
 
             </LinearLayout>
 
@@ -130,11 +153,11 @@
                     android:src="@drawable/boy" />
 
                 <TextView
+                    style="@style/TextTitleMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="About Us"
-                    style="@style/TextTitleMedium" />
+                    android:text="About Us" />
 
             </LinearLayout>
 

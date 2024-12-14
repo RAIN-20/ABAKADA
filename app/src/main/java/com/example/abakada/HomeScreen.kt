@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +12,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.abakada.auth.LoginActivity
 import com.example.abakada.student.ModulesActivity
 import com.example.abakada.student.StoryBookActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +33,8 @@ class HomeScreen : AppCompatActivity() {
         val modulesImage: ImageView = findViewById(R.id.image_modules)
         val quizzesImage: ImageView = findViewById(R.id.image_quizzes)
         val aboutUsImage: ImageView = findViewById(R.id.image_about_us)
+
+        val logout: ImageButton = findViewById(R.id.logout_button)
 
 //        storyBooksImage.setOnClickListener {
 //            val intent = Intent(this@HomeScreen, StoryBooksActivity::class.java)
@@ -65,7 +70,12 @@ class HomeScreen : AppCompatActivity() {
             val intent = Intent(this@HomeScreen, AboutUs::class.java)
             startActivity(intent)
         }
-
+        logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(
