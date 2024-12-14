@@ -24,23 +24,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quiz Question"
-        style="@style/TextQuizzes"
-        android:textSize="14sp"
-        />
-    <EditText
-        android:id="@+id/quiz_question_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your question here"
-        style="@style/TextInput"
-        />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Choose an image"
         style="@style/TextQuizzes"
         android:textSize="14sp"
@@ -60,6 +43,25 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quiz Question"
+        style="@style/TextQuizzes"
+        android:textSize="14sp"
+        />
+
+    <EditText
+        android:id="@+id/quiz_question_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your question here"
+        style="@style/TextInput"
+        />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
     <TextView
         android:id="@+id/quiz_answer_label"
         android:layout_width="match_parent"
