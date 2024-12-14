@@ -45,11 +45,23 @@ class ModulesFragment : Fragment() {
             .addOnSuccessListener { documents ->
                 moduleList.clear()
                 for (document in documents) {
-                    val moduleName = document.getString("name")
+                    val moduleName = document.getString("name") ?: ""
                     val moduleId = document.id
                     val moduleImageUrl = document.getString("imageUrl")?.toUri()
-                    val moduleData = ModuleData(id = moduleId, name = moduleName!!, imageUrl = moduleImageUrl)
-                    Log.d(TAG, "Story Title: $moduleName")
+                    val moduleType = document.getString("type") ?: "Unknown Type"
+                    val moduleParts = document.get("parts") as? MutableList<ModulePart> ?: mutableListOf()
+                    val moduleVideo = document.get("video") as? ModuleVideo
+                    val moduleDescription = document.getString("description") ?: ""
+                    val moduleData = ModuleData(
+                        id = moduleId,
+                        name = moduleName,
+                        imageUrl = moduleImageUrl,
+                        type = moduleType,
+                        description = moduleDescription,
+                        parts = moduleParts,
+                        video = moduleVideo?: ModuleVideo("", "")
+                    )
+                    Log.d(TAG, "Module Data: $moduleData")
                     moduleList.add(moduleData)
                 }
                 adapter.submitList(moduleList)

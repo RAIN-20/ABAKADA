@@ -39,20 +39,17 @@ class StoryAdapter(private val actionModeCallback: ActionMode.Callback) :
             if (story in selectedItems) {
                 selectedItems.remove(story)
                 holder.itemView.isSelected = false
-                // Change background color to default
                 holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.blue))
             } else {
                 selectedItems.add(story)
                 holder.itemView.isSelected = true
-                // Change background color to indicate selection (e.g., gray)
                 holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.grey))
             }
-            // Update action mode title with the number of selected items
             actionMode?.title = selectedItems.size.toString()
             true
         }
         holder.itemView.setOnClickListener {
-            if (actionMode != null) { // Only handle clicks in action mode
+            if (actionMode != null) {
                 if (story in selectedItems) {
                     selectedItems.remove(story)
                     holder.itemView.isSelected = false
@@ -62,16 +59,12 @@ class StoryAdapter(private val actionModeCallback: ActionMode.Callback) :
                     holder.itemView.isSelected = true
                     holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.grey))
                 }
-                // Update action mode title with the number of selected items
                 actionMode?.title = selectedItems.size.toString()
             } else {
-                // Handle normal item clicks (if needed)
-                // ...
+
             }
         }
 
-
-        // Set background color based on selection state
         holder.itemView.isSelected = story in selectedItems
         if (holder.itemView.isSelected) {
             holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.grey))

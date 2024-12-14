@@ -60,7 +60,7 @@ class ModulesActivity : AppCompatActivity() {
                         parts = moduleParts,
                         video = moduleVideo?: ModuleVideo("", "")
                     )
-                    Log.d(TAG, "Story Title: $moduleName")
+                    Log.d(TAG, "Module Data: $moduleData")
                     moduleList.add(moduleData)
                 }
                 adapter.submitList(moduleList)

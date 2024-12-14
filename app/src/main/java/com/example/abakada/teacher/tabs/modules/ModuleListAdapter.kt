@@ -1,6 +1,7 @@
 package com.example.abakada.teacher.tabs.modules
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -24,15 +25,19 @@ class ModuleListAdapter : ListAdapter<ModuleData, ModuleListAdapter.ModuleViewHo
                 if(moduleData.type == "Video"){
                     val intent = Intent(binding.root.context, ModuleVideoActivity::class.java)
                     intent.putExtra("moduleName", moduleData.name)
+                    intent.putExtra("moduleId", moduleData.id)
                     intent.putExtra("videoLink", moduleData.video.link)
                     intent.putExtra("videoDescription", moduleData.video.description)
+                    intent.putExtra("moduleImg", moduleData.imageUrl.toString())
                     binding.root.context.startActivity(intent)
-                }else{
+                }else if(moduleData.type == "List/Visual"){
                     val intent = Intent(binding.root.context, ModuleListDetailsActivity::class.java)
                     intent.putExtra("moduleName", moduleData.name)
                     intent.putExtra("moduleImg", moduleData.imageUrl.toString())
                     intent.putExtra("moduleId", moduleData.id)
                     binding.root.context.startActivity(intent)
+                }else{
+                    Log.d("ModuleListAdapter", "Invalid module type: ${moduleData.type}")
                 }
             }
         }
