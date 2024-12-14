@@ -62,4 +62,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.0.0")
+    implementation("androidx.viewpager2:viewpager2:1.1.0")
+    implementation("com.google.code.gson:gson:2.10.1")
 }
