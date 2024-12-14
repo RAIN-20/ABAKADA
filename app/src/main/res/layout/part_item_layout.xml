@@ -10,6 +10,7 @@
     android:layout_gravity="fill"
     android:layout_margin="20dp"
     android:padding="20dp"
+    android:id="@+id/part_container"
     >
     <ImageView
         android:id="@+id/part_image"
