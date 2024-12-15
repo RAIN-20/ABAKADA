@@ -1,40 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".student.MatchingTypeFragment">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/quiz_item_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextQuizzes"
+            android:paddingVertical="20dp"
+            />
         <LinearLayout
-            android:id="@+id/imagesContainer"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:paddingVertical="20dp"
+            android:paddingHorizontal="25dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/imagesContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+            </LinearLayout>
+<!--            -->
+            <LinearLayout
+                android:id="@+id/answersContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+            </LinearLayout>
         </LinearLayout>
-        <com.example.abakada.student.DrawingView
-            android:id="@+id/drawingView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2" />
-        <LinearLayout
-            android:id="@+id/answersContainer"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <!-- TextViews will be added here dynamically -->
-
-        </LinearLayout>
-
-
-
+        <Button
+            android:id="@+id/submit_button"
+            android:text="Submit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
-
-</FrameLayout>
+</ScrollView>

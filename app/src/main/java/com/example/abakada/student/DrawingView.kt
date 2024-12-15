@@ -7,7 +7,12 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.text.color
+import com.example.abakada.R
 
 
 class DrawingView @JvmOverloads constructor(
@@ -26,7 +31,19 @@ class DrawingView @JvmOverloads constructor(
         paint.color = Color.BLACK
         paint.strokeWidth = 5f
     }
+    fun drawLine(color: Int) {
+        paint.color = color
+        invalidate() // Redraw the view with the new color
+    }
+    interface OnMatchListener {
+        fun onMatch(startViewTag: Int, endViewTag: Int)
+    }
 
+    private var matchListener: OnMatchListener? = null
+
+    fun setOnMatchListener(listener: OnMatchListener) {
+        matchListener = listener
+    }
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         canvas.drawLine(startX, startY, endX, endY, paint)
@@ -45,8 +62,33 @@ class DrawingView @JvmOverloads constructor(
             }
             MotionEvent.ACTION_UP -> {
                 // Handle line drawing completion
+                checkMatch()
             }
         }
         return true
+    }
+    private fun checkMatch() {
+        val imageContainer = (parent as ViewGroup).findViewById<LinearLayout>(R.id.imagesContainer)
+        val answerContainer = (parent as ViewGroup).findViewById<LinearLayout>(R.id.answersContainer)
+
+        val startView = findViewAtPoint(startX, startY, imageContainer) as? ImageView
+        val endView = findViewAtPoint(endX, endY, answerContainer) as? TextView
+
+        if (startView != null && endView != null) {
+            val startViewTag = startView.tag as Int
+            val endViewTag = endView.tag as Int
+
+            matchListener?.onMatch(startViewTag, endViewTag)
+        }
+    }
+
+    private fun findViewAtPoint(x: Float, y: Float, container: ViewGroup): View? {
+        for (i in 0 until container.childCount) {
+            val child = container.getChildAt(i)
+            if (x >= child.left && x <= child.right && y >= child.top && y <= child.bottom) {
+                return child
+            }
+        }
+        return null
     }
 }
