@@ -18,6 +18,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.FirebaseStorage
+import java.util.UUID
 
 class AddItemsFragment : Fragment() {
     private var _binding: FragmentAddItemsBinding? = null
@@ -29,7 +30,6 @@ class AddItemsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAddItemsBinding.inflate(inflater, container, false)
-
 
         startForResult = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
@@ -66,12 +66,12 @@ class AddItemsFragment : Fragment() {
             val quizDifficulty = arguments?.getString("quizDifficulty") ?: ""
 
             val quiz = Quiz(
+                id = UUID.randomUUID().toString(),
                 name = quizName,
                 type = quizType,
                 difficulty = quizDifficulty,
                 questions = quizData
             )
-            Log.d("AddItemsFragment", "Quiz data: $quiz")
             saveQuizToFirebase(quiz)
         }
 

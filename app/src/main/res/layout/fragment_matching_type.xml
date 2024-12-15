@@ -5,10 +5,36 @@
     android:layout_height="match_parent"
     tools:context=".student.MatchingTypeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/imagesContainer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+        </LinearLayout>
+        <com.example.abakada.student.DrawingView
+            android:id="@+id/drawingView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+        <LinearLayout
+            android:id="@+id/answersContainer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- TextViews will be added here dynamically -->
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
 
 </FrameLayout>

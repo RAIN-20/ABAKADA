@@ -6,7 +6,14 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".student.FillInTheBlanksFragment">
-
+    <TextView
+        android:id="@+id/quiz_item_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextQuizzes"
+        android:textAlignment="center"
+        android:paddingVertical="20dp"
+        />
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/questionViewPager"
         android:layout_width="match_parent"
@@ -19,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
+        android:visibility="gone"
         android:text="Submit" />
 
 </LinearLayout>

@@ -14,13 +14,11 @@ import com.example.abakada.teacher.tabs.quizzes.Quiz
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
-import com.google.gson.Gson
 
 class QuizActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQuizBinding
     private lateinit var db: FirebaseFirestore
-    var quizData: Quiz? = null
-    val sharedViewModel: SharedQuizViewModel by viewModels()
+    private val sharedViewModel: SharedQuizViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -35,9 +33,7 @@ class QuizActivity : AppCompatActivity() {
         }
         val difficulty = intent.getStringExtra("difficulty" ) ?: ""
 
-        // Fetch random quiz based on difficulty
         fetchRandomQuiz(difficulty)
-
     }
     private fun fetchRandomQuiz(difficulty: String) {
         db.collection("quizzes")
@@ -50,17 +46,11 @@ class QuizActivity : AppCompatActivity() {
 
                     if (randomQuiz?.type == "Matching") {
                         sharedViewModel.quizData = randomQuiz
-                        val quizDataJson = Gson().toJson(randomQuiz)
-                        val bundle = Bundle()
-                        bundle.putString("quiz_data_json", quizDataJson)
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.quiz_activity_container, MatchingTypeFragment()) // Replace with your MatchingTypeFragment
                             .commit()
                     } else {
                         sharedViewModel.quizData = randomQuiz
-                        val quizDataJson = Gson().toJson(randomQuiz)
-                        val bundle = Bundle()
-                        bundle.putString("quiz_data_json", quizDataJson)
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.quiz_activity_container, FillInTheBlanksFragment()) // Replace with your FillInTheBlanksFragment
                             .commit()

@@ -41,6 +41,12 @@
                 android:layout_marginTop="16dp"
                 android:hint="Enter your answer" />
 
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next" />
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
