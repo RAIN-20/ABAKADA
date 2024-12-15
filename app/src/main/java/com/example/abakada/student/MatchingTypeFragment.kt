@@ -2,6 +2,7 @@ package com.example.abakada.student
 
 import android.content.ClipData
 import android.content.ClipDescription
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.DragEvent
@@ -15,6 +16,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.add
 import com.bumptech.glide.Glide
+import com.example.abakada.ResultsActivity
 import com.example.abakada.databinding.FragmentMatchingTypeBinding
 import com.google.firebase.Firebase
 import com.google.firebase.Timestamp
@@ -116,7 +118,12 @@ class MatchingTypeFragment : Fragment() {
                 .add(quizResult)
                 .addOnSuccessListener { documentReference ->
                     Toast.makeText(requireContext(), "Quiz results submitted successfully!", Toast.LENGTH_SHORT).show()
-                    // You can navigate to another fragment or activity here
+                    val intent = Intent(requireContext(), ResultsActivity::class.java)
+                    intent.putExtra("correctAnswers", correctAnswers)
+                    intent.putExtra("totalQuestions", totalItems)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
+
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(requireContext(), "Error submitting quiz results: ${e.message}", Toast.LENGTH_SHORT).show()

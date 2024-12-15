@@ -1,5 +1,6 @@
 package com.example.abakada.student
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.widget.ViewPager2
+import com.example.abakada.ResultsActivity
 import com.example.abakada.databinding.FragmentFillInTheBlanksBinding
 import com.example.abakada.teacher.tabs.quizzes.QuizQuestion
 import com.google.firebase.Timestamp
@@ -21,7 +23,7 @@ class FillInTheBlanksFragment : Fragment() {
     private val binding get() = _binding!!
     private val sharedViewModel: SharedQuizViewModel by activityViewModels()
     private var finishedItems = 0
-
+    private var totalItems = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -57,7 +59,7 @@ class FillInTheBlanksFragment : Fragment() {
         updateItemCountText(questions)
     }
     private fun updateItemCountText(questions: List<QuizQuestion>) {
-        val totalItems = questions.size
+        totalItems = questions.size
         binding.quizItemCount.text = "$finishedItems / $totalItems"
         if (finishedItems == totalItems) {
             binding.submitButton.visibility = View.VISIBLE
@@ -82,6 +84,11 @@ class FillInTheBlanksFragment : Fragment() {
             .addOnSuccessListener { documentReference ->
                 Log.d("FillInTheBlanksFragment", "Quiz result saved with ID: ${documentReference.id}")
                 Toast.makeText(requireContext(), "Quiz result saved", Toast.LENGTH_SHORT).show()
+                val intent = Intent(requireContext(), ResultsActivity::class.java)
+                intent.putExtra("correctAnswers", score)
+                intent.putExtra("totalQuestions", totalItems)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
             }
             .addOnFailureListener { e ->
                 Log.w("FillInTheBlanksFragment", "Error saving quiz result", e)
