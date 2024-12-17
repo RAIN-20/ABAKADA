@@ -33,6 +33,7 @@ class ModuleFormVideoFragment : Fragment() {
 
 
         binding.submitButton.setOnClickListener {
+            LoadingOverlayUtils.showLoadingOverlay(requireActivity())
             val moduleVideo = ModuleVideo(
                 binding.linkInput.text.toString(),
                 binding.videoDescriptionInput.text.toString(),
@@ -69,6 +70,7 @@ class ModuleFormVideoFragment : Fragment() {
         modulesCollection.add(moduleData)
             .addOnSuccessListener { documentReference ->
                 Log.d("ModuleVideoActivity", "Module data saved with ID: ${documentReference.id}")
+                LoadingOverlayUtils.hideLoadingOverlay(requireActivity())
                 Toast.makeText(requireContext(), "Module data saved", Toast.LENGTH_SHORT).show()
                 LoadingOverlayUtils.hideLoadingOverlay(requireActivity())
                 requireActivity().finish()
