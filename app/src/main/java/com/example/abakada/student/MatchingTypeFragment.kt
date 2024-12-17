@@ -6,16 +6,18 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.DragEvent
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.add
 import com.bumptech.glide.Glide
+import com.example.abakada.R
 import com.example.abakada.ResultsActivity
 import com.example.abakada.databinding.FragmentMatchingTypeBinding
 import com.google.firebase.Firebase
@@ -23,6 +25,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
+import de.hdodenhof.circleimageview.CircleImageView
 
 class MatchingTypeFragment : Fragment() {
     private var _binding: FragmentMatchingTypeBinding? = null
@@ -44,16 +47,24 @@ class MatchingTypeFragment : Fragment() {
         val quizData = sharedViewModel.quizData
         val questions = quizData?.questions ?: emptyList()
         totalItems = questions.size
-        binding.quizItemCount.text = "Correct Answers: 0 / $totalItems"
-        for (i in questions.indices) {
+        binding.quizItemCount.text = "0 / $totalItems"
+        val randomizedQuestions = questions.shuffled()
+        for (i in randomizedQuestions.indices) {
+            val question = randomizedQuestions[i]
             // Create ImageView for the image
-            val imageView = ImageView(requireContext())
+            val imageView = CircleImageView(requireContext())
             Glide.with(this)
-                .load(questions[i].imgUri)
+                .load(question.imgUri)
                 .into(imageView)
-            imageView.tag = i // Set a unique tag (index in this case)
+            imageView.tag = i
 
-            // Enable dragging for the ImageView
+            val imageLayoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            imageLayoutParams.gravity = Gravity.CENTER_HORIZONTAL
+            imageView.layoutParams = imageLayoutParams
+
             imageView.setOnLongClickListener { v ->
                 val clipText = v.tag.toString()
                 val itemData = ClipData.Item(clipText)
@@ -68,12 +79,17 @@ class MatchingTypeFragment : Fragment() {
 
             binding.imagesContainer.addView(imageView)
 
-            // Create TextView for the answer option
             val textView = TextView(requireContext())
-            textView.text = questions[i].answer
-            textView.tag = i // Set the same unique tag
+            textView.text = question.answer
+            textView.tag = i
+            textView.setTextAppearance(requireContext(), R.style.TextQuizzes)
+            val textLayoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            textLayoutParams.gravity = Gravity.CENTER_HORIZONTAL
+            textView.layoutParams = textLayoutParams
 
-            // Enable dropping for the TextView
             textView.setOnDragListener { v, event ->
                 when (event.action) {
                     DragEvent.ACTION_DROP -> {
@@ -83,12 +99,10 @@ class MatchingTypeFragment : Fragment() {
 
                         if (draggedImageIndex == v.tag as Int) {
                             correctAnswers++
-                            binding.quizItemCount.text = "Correct Answers: $correctAnswers / $totalItems"
+                            binding.quizItemCount.text = "$correctAnswers / $totalItems"
                             Toast.makeText(requireContext(), "Correct!", Toast.LENGTH_SHORT).show()
-                            // You can add further actions here, like changing the color of the TextView
                             (v as TextView).setTextColor(Color.GREEN)
                         } else {
-                            // Image does not match the answer
                             Toast.makeText(requireContext(), "Incorrect!", Toast.LENGTH_SHORT).show()
                         }
 
