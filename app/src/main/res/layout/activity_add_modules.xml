@@ -41,13 +41,6 @@
                     android:text="Create Module"
                     android:textAlignment="textStart"
                     />
-                <ImageButton
-                    android:id="@+id/saveModuleButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_save"
-                    android:backgroundTint="@android:color/transparent"
-                    />
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>

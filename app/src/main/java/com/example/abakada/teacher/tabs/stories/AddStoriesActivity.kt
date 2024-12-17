@@ -4,13 +4,11 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -102,8 +100,11 @@ class AddStoriesActivity : AppCompatActivity() {
         }
     }
     private fun openGallery() {
-        val pickImageIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        pickImageLauncher.launch(pickImageIntent)
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            type = "image/*"
+            addCategory(Intent.CATEGORY_OPENABLE)
+        }
+        pickImageLauncher.launch(intent)
     }
 
     private fun saveStory() {

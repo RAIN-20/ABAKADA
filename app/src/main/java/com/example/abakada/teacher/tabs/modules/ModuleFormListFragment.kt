@@ -64,7 +64,9 @@ class ModuleFormListFragment : Fragment() {
             val partNameEditText = modulePartView.findViewById<EditText>(R.id.partTextEditText)
             val partNameEditTextDescription = modulePartView.findViewById<EditText>(R.id.partTextEditTextDescription)
             val selectImageButton = modulePartView.findViewById<ImageView>(R.id.select_image_button)
-
+            if (modulePartView.parent != null) {
+                (modulePartView.parent as ViewGroup).removeView(modulePartView)
+            }
             removeButton.setOnClickListener {
                 binding.moduleListItemContainer.removeView(modulePartView)
                 moduleParts.remove(ModulePart("", "", null))
@@ -79,12 +81,11 @@ class ModuleFormListFragment : Fragment() {
 
             selectImageButton.setOnClickListener {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-                    type = "image/*" // Filter to only show image files
-                    addCategory(Intent.CATEGORY_OPENABLE) // Allow the user to select a file
+                    type = "image/*"
+                    addCategory(Intent.CATEGORY_OPENABLE)
                 }
                 currentModuleListItem = modulePart
                 pickImage.launch(intent)
-//                updateModulePartImage(modulePartView, modulePart.imageUri)
             }
 
             binding.moduleListItemContainer.addView(modulePartView)
@@ -95,12 +96,11 @@ class ModuleFormListFragment : Fragment() {
         binding.submitButton.setOnClickListener {
             val data = viewModel.moduleData.value
             if (data != null) {
-                LoadingOverlayUtils.showLoadingOverlay(requireActivity())
                 data.parts = moduleParts
                 viewModel.moduleData.value = data
                 Log.d("ModuleFormListFragment", "Data: $data")
 
-                uploadAndSaveModuleData(data) // Call private function
+                uploadAndSaveModuleData(data)
             }
         }
         return binding.root
@@ -123,14 +123,14 @@ class ModuleFormListFragment : Fragment() {
                         storageRef.downloadUrl
                     }
                     .continueWith { task ->
-                        task.result.toString() // Get download URL as String
+                        task.result.toString()
                     }
             } else {
-                Tasks.forResult(null) // Return null if no image
+                Tasks.forResult(null)
             }
         }
 
-        return Tasks.whenAllSuccess<String?>(uploadTasks) // Combine all tasks
+        return Tasks.whenAllSuccess<String?>(uploadTasks)
     }
 
     private fun uploadAndSaveModuleData(data: ModuleData) {
