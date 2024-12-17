@@ -58,19 +58,23 @@ class ModuleFormListFragment : Fragment() {
         _binding = FragmentModuleFormListBinding.inflate(inflater, container, false)
 
         binding.addModuleItemButton.setOnClickListener {
-            val modulePart = ModulePart("", null)
+            val modulePart = ModulePart("", "", null)
             val modulePartView = inflater.inflate(R.layout.layout_list_visual, binding.moduleListItemContainer, false)
             val removeButton = modulePartView.findViewById<ImageView>(R.id.removePartButton)
             val partNameEditText = modulePartView.findViewById<EditText>(R.id.partTextEditText)
+            val partNameEditTextDescription = modulePartView.findViewById<EditText>(R.id.partTextEditTextDescription)
             val selectImageButton = modulePartView.findViewById<ImageView>(R.id.select_image_button)
 
             removeButton.setOnClickListener {
                 binding.moduleListItemContainer.removeView(modulePartView)
-                moduleParts.remove(ModulePart("", null))
+                moduleParts.remove(ModulePart("", "", null))
             }
 
             partNameEditText.doAfterTextChanged { editable ->
                 modulePart.name = editable?.toString() ?: ""
+            }
+             partNameEditTextDescription.doAfterTextChanged { editable ->
+                modulePart.description = editable?.toString() ?: ""
             }
 
             selectImageButton.setOnClickListener {
@@ -91,6 +95,7 @@ class ModuleFormListFragment : Fragment() {
         binding.submitButton.setOnClickListener {
             val data = viewModel.moduleData.value
             if (data != null) {
+                LoadingOverlayUtils.showLoadingOverlay(requireActivity())
                 data.parts = moduleParts
                 viewModel.moduleData.value = data
                 Log.d("ModuleFormListFragment", "Data: $data")
@@ -172,6 +177,7 @@ class ModuleFormListFragment : Fragment() {
         val modulesCollection = db.collection("modules")
         modulesCollection.add(moduleData)
             .addOnSuccessListener { documentReference ->
+                LoadingOverlayUtils.hideLoadingOverlay(requireActivity())
                 Toast.makeText(requireContext(), "Module data saved", Toast.LENGTH_SHORT).show()
                 requireActivity().finish()
                 LoadingOverlayUtils.hideLoadingOverlay(requireActivity())

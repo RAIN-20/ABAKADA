@@ -3,7 +3,7 @@ package com.example.abakada.teacher.tabs.modules
 import android.net.Uri
 import java.security.Timestamp
 
-data class ModulePart(var name: String = "", var imageUri: Uri? = null)
+data class ModulePart(var name: String = "", var description: String,  var imageUri: Uri? = null)
 
 data class ModuleVideo(var link: String ="", var description: String ="")
 
