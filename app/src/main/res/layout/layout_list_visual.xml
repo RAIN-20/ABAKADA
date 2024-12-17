@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/text_input"
-            android:hint="Enter Title/Name"
+            android:hint="Description"
             android:inputType="textMultiLine"
             android:padding="10dp"
             android:textSize="18sp" />

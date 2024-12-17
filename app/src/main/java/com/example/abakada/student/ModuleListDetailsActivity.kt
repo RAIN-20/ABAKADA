@@ -52,8 +52,8 @@ class ModuleListDetailsActivity : AppCompatActivity() {
                     for (partMap in parts) {
                         val name = partMap["name"] as? String ?: ""
                         val imageUri = partMap["imageUri"] as? String ?: ""
-
-                        val modulePart = ModulePart(name = name, imageUri = imageUri.toUri())
+                        val description = partMap["description"] as? String ?: ""
+                        val modulePart = ModulePart(name = name, description = description, imageUri = imageUri.toUri())
                         partsList.add(modulePart)
                     }
 

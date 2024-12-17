@@ -39,7 +39,7 @@ class PartsAdapter(private val context: Context, private val parts: List<ModuleP
             .into(partImageView)
 
         partContainer.setOnClickListener {
-            val textToSpeak = part.name
+            val textToSpeak = part.description
             tts?.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null, "utteranceId")
         }
 
